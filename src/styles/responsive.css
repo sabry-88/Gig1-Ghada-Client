@@ -1,0 +1,102 @@
+/* ============================================================
+   RESPONSIVE STYLES
+   ============================================================ */
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  /* Hero */
+  #hero .container {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  #hero [class*="monogramWrap"],
+  #hero > div:last-child { /* monogram */
+    display: none !important;
+  }
+
+  /* About */
+  #about .reveal > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Education */
+  #education .reveal > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Footer inner */
+  footer > div > div:first-of-type {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Navbar: hide desktop links */
+  nav ul {
+    display: none !important;
+  }
+
+  /* Timeline spine visible */
+  /* keep as is */
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.825rem;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  /* Experience cards full width */
+  #experience .reveal > div > div {
+    grid-template-columns: 20px 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Contact grid */
+  #contact .reveal > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Skills grid */
+  #skills .reveal > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hero chips stack */
+  #hero [class*="chips"] {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  /* CTA stack */
+  #hero [class*="cta"] {
+    flex-direction: column !important;
+  }
+
+  /* Hero name smaller */
+  #hero h1 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
+  }
+
+  /* LinkedIn section padding */
+  #root section > div > div > div:first-child {
+    padding: 2.5rem 1.5rem !important;
+  }
+}
+
+/* ── Very small ── */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}

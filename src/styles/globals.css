@@ -1,0 +1,234 @@
+/* ============================================================
+   GHADA PORTFOLIO — DESIGN SYSTEM
+   Palette: Slate Grey (#6B7280) → Silver (#9CA3AF) → Pearl (#D1D5DB) → White (#F3F4F6)
+   Accent:  Deep Slate (#374151) — signature punchy contrast
+   Typography: Cormorant Garamond (display) + DM Sans (body) + DM Mono (labels)
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ---------- Grey Palette (from image) ---------- */
+  --c-slate:    #6B7280;   /* darkest stripe */
+  --c-mid:      #9CA3AF;   /* mid grey */
+  --c-silver:   #B0B7C0;   /* lighter mid */
+  --c-pearl:    #D1D5DB;   /* near-white */
+  --c-white:    #F9FAFB;
+
+  /* ---------- Dark Theme Tokens ---------- */
+  --bg-primary:   #111318;
+  --bg-secondary: #1C1F26;
+  --bg-card:      #22262E;
+  --bg-hover:     #2A2F3A;
+
+  --text-primary:   #F3F4F6;
+  --text-secondary: #D1D5DB;
+  --text-muted:     #9CA3AF;
+  --text-accent:    #E5E7EB;
+
+  --border:     rgba(156, 163, 175, 0.15);
+  --border-mid: rgba(156, 163, 175, 0.25);
+  --border-strong: rgba(209, 213, 219, 0.4);
+
+  --accent:       #D1D5DB;
+  --accent-dim:   rgba(209, 213, 219, 0.12);
+  --accent-glow:  rgba(209, 213, 219, 0.06);
+
+  --nav-bg: rgba(17, 19, 24, 0.85);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.6);
+}
+
+[data-theme="light"] {
+  --bg-primary:   #F9FAFB;
+  --bg-secondary: #F3F4F6;
+  --bg-card:      #FFFFFF;
+  --bg-hover:     #F0F2F5;
+
+  --text-primary:   #111318;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-accent:    #1F2937;
+
+  --border:     rgba(107, 114, 128, 0.12);
+  --border-mid: rgba(107, 114, 128, 0.2);
+  --border-strong: rgba(55, 65, 81, 0.35);
+
+  --accent:       #374151;
+  --accent-dim:   rgba(55, 65, 81, 0.08);
+  --accent-glow:  rgba(55, 65, 81, 0.04);
+
+  --nav-bg: rgba(249, 250, 251, 0.88);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.1);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--c-slate); border-radius: 99px; }
+
+/* ── Selection ── */
+::selection { background: var(--accent-dim); color: var(--text-primary); }
+
+/* ── Focus ── */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ── Typography ── */
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-mono    { font-family: 'DM Mono', monospace; }
+
+/* ── Container ── */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+/* ── Section spacing ── */
+.section {
+  padding: clamp(4rem, 10vw, 7rem) 0;
+}
+
+/* ── Divider ── */
+.section-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Section heading ── */
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 3px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+.btn-primary:hover {
+  background: var(--text-secondary);
+  border-color: var(--text-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.btn-outline:hover {
+  background: var(--accent-dim);
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card:hover {
+  border-color: var(--border-mid);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.animate-fadeInUp { animation: fadeInUp 0.7s ease forwards; }
+.animate-fadeIn   { animation: fadeIn 0.6s ease forwards; }
+
+/* ── Staggered delays ── */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+.delay-4 { animation-delay: 0.5s; }
+.delay-5 { animation-delay: 0.65s; }
+
+/* ── Reveal on scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Reduce motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
